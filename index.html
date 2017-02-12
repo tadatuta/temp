@@ -1,3 +1,11 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>gyro</title>
+</head>
+<body>
+<div class="info">initial</div>
 <script src="node_modules/gyronorm/dist/gyronorm.complete.min.js"></script>
 
 <script type="text/javascript">
@@ -8,20 +16,24 @@ var alpha = 0,
     beta = 0,
     gamma = 0;
 
+    function log(data) {
+        document.querySelector('.info').innerHTML += data + '<br>';
+    }
+
     gn.init().then(function(){
         gn.start(function(data){
             if (data.dm.alpha !== alpha) {
-                console.log(data.dm.alpha);
+                log('alpha = ' + data.dm.alpha);
                 alpha = data.dm.alpha;
             }
 
             if (data.dm.beta !== beta) {
-                console.log(data.dm.beta);
+                log('beta = ' + data.dm.beta);
                 beta = data.dm.beta;
             }
 
             if (data.dm.gamma !== gamma) {
-                console.log(data.dm.gamma);
+                log('gamma = ' + data.dm.gamma);
                 gamma = data.dm.gamma;
             }
 
@@ -48,3 +60,5 @@ var alpha = 0,
       // Catch if the DeviceOrientation or DeviceMotion is not supported by the browser or device
     });
 </script>
+</body>
+</html>
