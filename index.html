@@ -24,19 +24,19 @@ var alpha = 0,
 
     gn.init().then(function(){
         gn.start(function(data){
-            if (data.dm.alpha !== alpha) {
-                log('alpha', data.dm.alpha);
-                alpha = data.dm.alpha;
+            if (data.do.alpha !== alpha) {
+                log('alpha', data.do.alpha);
+                alpha = data.do.alpha;
             }
 
-            if (data.dm.beta !== beta) {
-                log('beta', data.dm.beta);
-                beta = data.dm.beta;
+            if (data.do.beta !== beta) {
+                log('beta', data.do.beta);
+                beta = data.do.beta;
             }
 
-            if (data.dm.gamma !== gamma) {
-                log('gamma', data.dm.gamma);
-                gamma = data.dm.gamma;
+            if (data.do.gamma !== gamma) {
+                log('gamma', data.do.gamma);
+                gamma = data.do.gamma;
             }
 
 
