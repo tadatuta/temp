@@ -5,7 +5,9 @@
     <title>gyro</title>
 </head>
 <body>
-<div class="info">initial</div>
+<div>alpha = <span class="alpha">initial</span></div>
+<div>beta = <span class="beta">initial</span></div>
+<div>gamma = <span class="gamma">initial</span></div>
 <script src="gyronorm.complete.min.js"></script>
 
 <script type="text/javascript">
@@ -16,24 +18,24 @@ var alpha = 0,
     beta = 0,
     gamma = 0;
 
-    function log(data) {
-        document.querySelector('.info').innerHTML += data + '<br>';
+    function log(type, data) {
+        document.querySelector('.' + type).innerHTML = data;
     }
 
     gn.init().then(function(){
         gn.start(function(data){
             if (data.dm.alpha !== alpha) {
-                log('alpha = ' + data.dm.alpha);
+                log('alpha', data.dm.alpha);
                 alpha = data.dm.alpha;
             }
 
             if (data.dm.beta !== beta) {
-                log('beta = ' + data.dm.beta);
+                log('beta', data.dm.beta);
                 beta = data.dm.beta;
             }
 
             if (data.dm.gamma !== gamma) {
-                log('gamma = ' + data.dm.gamma);
+                log('gamma', data.dm.gamma);
                 gamma = data.dm.gamma;
             }
 
